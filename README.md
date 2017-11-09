@@ -44,4 +44,7 @@ toggle
 
 ## Github
 github koppelen aan git version control: git remote add github (url)
-publiceren: git push github (branch naam)
+publiceren: git push github (branch)
+binnenhalen: git pull github (branch)
+branch maken: git branch (branch)
+branch wisselen: git checkout (branch)
