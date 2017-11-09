@@ -41,3 +41,7 @@ myApp inhoud:
     lijst van alle modules die nodig zijn voor de app. Zorgt voor instaleren van modules (met commando npm install).
 
 toggle
+
+## Github
+github koppelen aan git version control: git remote add github (url)
+publiceren: git push github (branch naam)
