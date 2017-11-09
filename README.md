@@ -12,12 +12,13 @@ Simulator van frontend inteface sturt opdrachten naar backend voor testen.
 
 ## [Ionic framework](https://ionicframework.com/getting-started)
 
-Source code frontend staat in folder myApp.
+Source code frontend staat in folder ionic.
 Moet worden gecompileerd naar Flask/static.
 
-Tijdens ontwikkelen kan frontend code worden getest d.m.v. volgende commando: ionic serve. Vanuit command prompt in myApp folder.
+Tijdens ontwikkelen kan frontend code worden getest d.m.v. volgende commando: ionic serve. 
+Vanuit command prompt in myApp folder.
 
-myApp inhoud:
+ionic folder inhoud:
 - .sourcemaps:
     invisible ionic (system)file (gecompileerd).
 - node_modules:
@@ -44,9 +45,15 @@ toggle
 
 ## Github
 github koppelen aan git version control: git remote add github (url)
+
 github loskoppelen: git remote remove github
+
 status: git status
+
 publiceren: git push github (branch)
+
 binnenhalen: git pull github (branch)
+
 branch maken: git branch (branch)
+
 branch wisselen: git checkout (branch)
