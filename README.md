@@ -45,6 +45,7 @@ toggle
 ## Github
 github koppelen aan git version control: git remote add github (url)
 github loskoppelen: git remote remove github
+status: git status
 publiceren: git push github (branch)
 binnenhalen: git pull github (branch)
 branch maken: git branch (branch)
