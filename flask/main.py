@@ -33,7 +33,6 @@ def index():
     # stuurt inteface naar browser.
     return app.send_static_file('index.html')
 
-<<<<<<< HEAD
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     auth = request.authorization
@@ -54,8 +53,6 @@ def login():
         return make_response("You're not allowed to use this app.", 401, 
         {"WWW-Authenticate" : "Basic realm='Login Required'"})
 
-=======
->>>>>>> 443e28185475c81225cde31ba7e517b794f0b258
 @app.route('/light', methods=['POST'])
 @token_required
 def lightPOST():
