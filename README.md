@@ -15,6 +15,17 @@ Voor authenticatie:
 
 Bij login route wordt token aangemaakt.
 Token is nodig voor route light. token_required contoleert of gebruiker een valid token heeft.
+Token wordt doorgegeven in custom header: x-smartroom-token.
+
+### [API] (https://nl.wikipedia.org/wiki/Application_programming_interface)
+Alle apps kunnen gebruik maken van de functionaliteiten, om dit te voorkomen hebben we de authentication.
+
+### [base64] (https://nl.wikipedia.org/wiki/Base64)
+conferteerd binaire code naar ASCII-tekens (letters en cijvers). Dit is noodzakelijk, omdat protocollen op internet gebruik maken van 7 bits i.p.v. 8.
+
+### [CORS] (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) (Cross Origin Resource Sharing)
+Allows communication between backend and frontend. Fronteend controleert of backend communicatie toestaat.
+CORS zorgt ervoor dat backend cammunidatie toestaat. Postman negeert CORS.
 
 ## Postman
 Simulator van frontend inteface sturt opdrachten naar backend voor testen.
