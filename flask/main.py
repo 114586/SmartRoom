@@ -38,9 +38,9 @@ def token_required(f):
             try:
                 data = jwt.decode(token, app.config['SECRET_KEY'])
             except:
-                return jsonify({'message' : "Token is invalid."}), 403
+                return jsonify({'message' : "Token is invalid."}), 498
         else:
-            return jsonify({'message' : "Token is missing."}), 401
+            return jsonify({'message' : "Token is missing."}), 499
         # *args en **kwargs = arguments en keyword arguments.
         return f(*args, **kwargs)
     return decorated
@@ -63,13 +63,13 @@ def login():
     # als auth != None en passwordt klopt dan maak jwt token.
     # frontend checkt voor username.
     # backend moet checken voor password, anders errror als login route wordt aangesproken via url.
-    if auth and auth["password"]:
+    if auth and "password" in auth:
 
         p = base64.b64decode(auth["password"]).decode("utf-8", "ignore")
 
-        if p == "password"
+        if p == "password":
             token = jwt.encode({
-                'user': auth["user"]
+                'user': auth["user"],
                 # exp = geldigheidsduur van token.
                 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=90)
             }, app.config['SECRET_KEY'])
@@ -79,9 +79,9 @@ def login():
             }
             return jsonify(tokenInfo)
         else:
-            return jsonify({'message' : "Password is incorrect."})
+            return jsonify({'message' : "Password is incorrect."}), 401
     else:
-        return jsonify({'message' : "Vul password in! :("})
+        return jsonify({'message' : "Vul password in! :("}), 400
 
 @app.route('/light', methods=['POST'])
 @token_required
@@ -89,8 +89,8 @@ def lightPOST():
     data = request.get_json()
     print("data light", data)
 
-    if data and data["light"]:
-        if data["light"] = True:
+    if data and "light" in data:
+        if data["light"] == True:
             #hier moet code komen die het licht uit zet.
             pass
         else:
@@ -101,7 +101,68 @@ def lightPOST():
         data['light'] = not data['light']
         return jsonify(data)
     else:
+        return jsonify({"message" : "No data provided."}), 400
         
+@app.route('/lock', methods=['POST'])
+@token_required
+def lockPOST():
+    data = request.get_json()
+    print("data lock", data)
+
+    if data and "lock" in data:
+        if data["lock"] == True:
+            #hier moet code komen die het lock uit zet.
+            pass
+        else:
+            #hier moet code komen die het lock aan zet.
+            pass
+
+
+        data['lock'] = not data['lock']
+        return jsonify(data)
+    else:
+        return jsonify({"message" : "No data provided."}), 400
+
+@app.route('/camera', methods=['POST'])
+@token_required
+def cameraPOST():
+    data = request.get_json()
+    print("data camera", data)
+
+    if data and "camera" in data:
+        if data["camera"] == True:
+            #hier moet code komen die het camera uit zet.
+            pass
+        else:
+            #hier moet code komen die het camera aan zet.
+            pass
+
+
+        data['camera'] = not data['camera']
+        return jsonify(data)
+    else:
+        return jsonify({"message" : "No data provided."}), 400
+
+@app.route('/motion', methods=['POST'])
+@token_required
+def motionPOST():
+    data = request.get_json()
+    print("data motion", data)
+
+    if data and "motion" in data:
+        if data["motion"] == True:
+            #hier moet code komen die het motion uit zet.
+            pass
+        else:
+            #hier moet code komen die het motion aan zet.
+            pass
+
+
+        data['motion'] = not data['motion']
+        return jsonify(data)
+    else:
+        return jsonify({"message" : "No data provided."}), 400
+
 
 if __name__ == "__main__":
     app.run(debug=True)
