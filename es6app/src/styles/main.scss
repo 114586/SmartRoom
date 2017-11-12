@@ -1,0 +1,16 @@
+
+//import lettertype van google.
+@import url(https://fonts.googleapis.com/css?family=Lobster+Two|Roboto:300,400,700);
+
+//import material icons
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+//import layout
+@import 'layout';
+
+//import loaders.
+// ~ betekend dat het uit node_modules komt.
+@import '~loaders.css/loaders';
+
+//import media queries.
+@import 'media';

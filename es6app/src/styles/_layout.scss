@@ -1,0 +1,29 @@
+//import fonts, colors and paddings
+@import 'fonts';
+@import 'colors';
+@import 'paddings';
+
+body{
+    font-family: $font2;
+    display: flex;
+    min-width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+// referentie naar class begint met een punt (.). 
+// referentie naar id begint met een hashtag (#).
+.loader{
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#smartroom_main, #app_loader{
+    color: $color2;
+    background-color: $color2-comp;
+}
