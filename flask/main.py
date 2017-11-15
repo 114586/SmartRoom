@@ -1,5 +1,3 @@
-import motion
-import threading
 from flask import Flask, request, jsonify
 #Install flask_cors: pip install flask-cors
 from flask_cors import CORS
@@ -153,14 +151,20 @@ def motionPOST():
 
     if data and "motion" in data:
         data['motion'] = not data['motion']
-
+        print("data motion", data)
         if data['motion'] == True:
-            print("data motion true")
-            motion.setOn()
+            #Open file for communication with motion sensor.
+            file = open("Communicate_motion", "w")
+            file.write("1")
+            print("writing 1...")
+            file.close()
+            
         else:
-            print("data motion false")
-            motion.setOff()
-
+            #Open file for communication with motion sensor.
+            file = open("Communicate_motion", "w")
+            file.write("0")
+            print("writing 0...")
+            file.close()
         return jsonify(data)
     else:
         return jsonify({"message" : "No data provided."}), 400

@@ -1,20 +1,14 @@
 import time
-import threading
-
-#global aan
-global aan
-aan = False
 
 x = 0
-e = threading.Event() # de functie threading.Event() wordt aangeroepen met e
-while not e.wait(5): #
+while True: #
     print("motion waiting...")
-    if aan:
+    #read data from file 
+    #if file data = 1, aan = true
+    file = open("Communicate_motion", "r")
+    aan = int(file.read())
+    if aan == 1:
         x += 1
         print("motion on", x)
+    time.sleep(5)
 
-def setOn():
-    aan = True
-
-def setOff():
-    aan = False
